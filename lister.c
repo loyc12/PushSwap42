@@ -6,14 +6,14 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:13 by llord             #+#    #+#             */
-/*   Updated: 2022/08/15 14:03:28 by llord            ###   ########.fr       */
+/*   Updated: 2022/08/16 09:16:37 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 int	*lister(int *list, char **args, int lenght)
-{
+{							// Converts the args into ints
 	int	i;
 	int	value;
 	

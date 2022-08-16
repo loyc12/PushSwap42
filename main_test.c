@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:20 by llord             #+#    #+#             */
-/*   Updated: 2022/08/15 14:02:47 by llord            ###   ########.fr       */
+/*   Updated: 2022/08/16 09:39:50 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	main(int argc, char **argv)						// Tests the general initialization
 {
-	struct s_bank bank_a;
-	struct s_bank bank_b;
+	struct s_stack stack_a;
+	struct s_stack stack_b;
 	int	*list = NULL;		// FORMAT ME BITCH
 
 	argv += 1; argc -= 1;	// FORMAT ME BITCH
@@ -33,10 +33,10 @@ int	main(int argc, char **argv)						// Tests the general initialization
 	if (!value_filter(list, argc))				// Error handler 2
 		return (2);
 
-	bank_a = banker_a(list);					// Initializes both banks (stacks)
-	bank_b = banker_b(bank_a.max_lenght);		//
+	stack_a = stacker_a(list);					// Initializes both stacks (stacks)
+	stack_b = stacker_b(stack_a.max_lenght);
 
-	debug_moves(&bank_a, &bank_b);				// Tries moves (Debug)
+	debug_moves(&stack_a, &stack_b);			// Tries moves (Debug)
 
 	return (0);
 }

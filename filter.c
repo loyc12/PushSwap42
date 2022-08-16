@@ -6,14 +6,14 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:13 by llord             #+#    #+#             */
-/*   Updated: 2022/08/15 13:59:32 by llord            ###   ########.fr       */
+/*   Updated: 2022/08/16 09:21:20 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static int	is_valid(char *string)
-{
+{							// Checks if a string is numerical
 	int	validity;
 	int	i;
 
@@ -22,7 +22,7 @@ static int	is_valid(char *string)
 	if (string[0] == '-' || string[0] == '+')
 	{
 		if (!('0' <= string[1] && string[1] <= '9'))
-			validity = 0;
+			validity = 0;	// Avoids "-" and "+" being numerical values
 		++i;
 	}
 	while (string[++i])
@@ -32,7 +32,7 @@ static int	is_valid(char *string)
 }
 
 int format_filter(char **args, int lenght)
-{
+{							// Checks if the args are numerical
 	int	validity;
 	int	i; 
 
@@ -44,12 +44,12 @@ int format_filter(char **args, int lenght)
 			validity = 0;
 	}
 	if (!validity)
-		write(1, "ERROR : Non-numerical values\n", 29);
+		write(1, "ERROR : Non-numerical values\n", 29);	// Despecify
 	return (validity);
 }
 
 int value_filter(int *list, int lenght)
-{
+{							// Checks if the values are all unique
 	int	validity;
 	int	i;
 	int	j;
@@ -64,6 +64,6 @@ int value_filter(int *list, int lenght)
 				validity = 0;
 	}
 	if (!validity)
-		write(1, "ERROR : Repeated values\n", 24);
+		write(1, "ERROR : Repeated values\n", 24);	// Despecify
 	return (validity);
 }

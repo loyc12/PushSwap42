@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:20:01 by llord             #+#    #+#             */
-/*   Updated: 2022/08/15 14:01:18 by llord            ###   ########.fr       */
+/*   Updated: 2022/08/16 09:38:32 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,21 @@
 #include <unistd.h>
 
 // struct def
-typedef struct	s_bank
+typedef struct	s_stack
 {
 	int	*list;
 	int	pos;
 	int	lenght;
 	int	max_lenght;
-}		t_bank;
+}		t_stack;
 
-struct s_bank	*bank_pointer;
+struct s_stack	*stack_pointer;
 
-// From debug_tests										REMOVE BEFORE CLOSING
-void	debug_print_banks(struct s_bank *bank_a, struct s_bank *bank_b, int type);
+// From debug_tests											REMOVE BEFORE CLOSING
+void	debug_print_stacks(struct s_stack *stack_a, struct s_stack *stack_b, int type);
 void	debug_print_str(char **list, int len, char *name);
 void	debug_print_int(int*list, int len, char *name);
-void	debug_moves(struct s_bank *bank_a, struct s_bank *bank_b);
+void	debug_moves(struct s_stack *stack_a, struct s_stack *stack_b);
 
 // From libft_imports
 int		ft_atoi(const char *str);
@@ -44,19 +44,19 @@ int value_filter(int *list, int lenght);
 int	*lister(int *list, char **args, int lenght);
 int	*indexer(int *list, int lenght);
 
-// From banker
-struct s_bank	banker_a(int *list);
-struct s_bank	banker_b(int lenght);
+// From stacker
+struct s_stack	stacker_a(int *list);
+struct s_stack	stacker_b(int lenght);
 
 // From mover
-void	push(struct s_bank *src_bank, struct s_bank *dst_bank);
-void	swap(struct s_bank *bank);
-void	rotate(struct s_bank *bank, int type);
+void	push(struct s_stack *src_stack, struct s_stack *dst_stack);
+void	swap(struct s_stack *stack);
+void	rotate(struct s_stack *stack, int type);
 
 // From moves
-void	ss(struct s_bank *bank_a, struct s_bank *bank_b, int type);
-void	pp(struct s_bank *bank_a, struct s_bank *bank_b, int type);
-void	rr(struct s_bank *bank_a, struct s_bank *bank_b, int type);
-void	rrr(struct s_bank *bank_a, struct s_bank *bank_b, int type);
+void	ss(struct s_stack *stack_a, struct s_stack *stack_b, int type);
+void	pp(struct s_stack *stack_a, struct s_stack *stack_b, int type);
+void	rr(struct s_stack *stack_a, struct s_stack *stack_b, int type);
+void	rrr(struct s_stack *stack_a, struct s_stack *stack_b, int type);
 
 #endif

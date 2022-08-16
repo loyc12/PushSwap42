@@ -6,22 +6,23 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:11 by llord             #+#    #+#             */
-/*   Updated: 2022/08/16 09:43:56 by llord            ###   ########.fr       */
+/*   Updated: 2022/08/16 13:32:37 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void shuffle(struct s_stack *stack, int type)
+static void	shuffle(t_stack *stack, int type)
 {							// Makes / remove a space in the list (for push)
-	int i;
-	
+	int	i;
+
 	if (type == 0)			// Type : (0) = down
 	{
 		i = (*stack).max_lenght;
 		while ((*stack).pos < i--)
 			(*stack).list[i + 1] = (*stack).list[i];
 		(*stack).list[(*stack).pos] = 0;
+		(*stack).lenght++;
 	}
 	else if (type == 1)		// Type : (1) = up
 	{
@@ -29,28 +30,29 @@ static void shuffle(struct s_stack *stack, int type)
 		while (++i < (*stack).max_lenght)
 			(*stack).list[i - 1] = (*stack).list[i];
 		(*stack).list[i - 1] = 0;
+		(*stack).lenght--;
 	}
 	else
 		write(1, " - Bad input (shuffle)", 20);	// For debugging only
 }
 
-void	push(struct s_stack *src_stack, struct s_stack *dst_stack)
+void	push(t_stack *src_stack, t_stack *dst_stack)
 {
-	if ((*dst_stack).lenght < (*dst_stack).max_lenght && 0 < (*src_stack).lenght)
+	if ((*dst_stack).lenght < (*dst_stack).max_lenght \
+	&& 0 < (*src_stack).lenght)
 	{
 		shuffle(dst_stack, 0);
-		(*dst_stack).list[(*dst_stack).pos] = (*src_stack).list[(*src_stack).pos];
+		(*dst_stack).list[(*dst_stack).pos] = \
+		(*src_stack).list[(*src_stack).pos];
 		shuffle(src_stack, 1);
-		(*dst_stack).lenght++;
-		(*src_stack).lenght--;
-		if ((*src_stack).pos == (*src_stack).lenght)
+		if ((*src_stack).pos >= (*src_stack).lenght)
 			(*src_stack).pos = 0;
 	}
 	else
 		write(1, " - Unable to push", 17);		// For debugging only
 }
 
-void	swap(struct s_stack *stack)
+void	swap(t_stack *stack)
 {
 	int	temp;
 
@@ -70,9 +72,11 @@ void	swap(struct s_stack *stack)
 		write(1, " - Unable to swap", 17);		// For debugging only
 }
 
-void	rotate(struct s_stack *stack, int type)
+void	rotate(t_stack *stack, int type)
 {
-	if (type == 0)			// Type : (0) = down
+	if ((*stack).lenght < 2)
+		write(1, " - Unable to rotate", 21);
+	else if (type == 0)			// Type : (0) = down
 	{
 		if (0 < (*stack).pos)
 			(*stack).pos--;
@@ -88,4 +92,4 @@ void	rotate(struct s_stack *stack, int type)
 	}
 	else
 		write(1, " - Bad input (rotate)", 21);	// For debugging only
-}												// DOES NOT WARN FOR USELESS ROTATES !!!
+}

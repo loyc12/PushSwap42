@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:13 by llord             #+#    #+#             */
-/*   Updated: 2022/08/16 09:21:20 by llord            ###   ########.fr       */
+/*   Updated: 2022/08/16 12:30:35 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ static int	is_valid(char *string)
 	return (validity);
 }
 
-int format_filter(char **args, int lenght)
+int	format_filter(char **args, int lenght)
 {							// Checks if the args are numerical
 	int	validity;
-	int	i; 
+	int	i;
 
 	i = -1;
 	validity = 1;
@@ -48,7 +48,7 @@ int format_filter(char **args, int lenght)
 	return (validity);
 }
 
-int value_filter(int *list, int lenght)
+int	value_filter(int *list, int lenght)
 {							// Checks if the values are all unique
 	int	validity;
 	int	i;

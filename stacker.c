@@ -6,15 +6,15 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:20 by llord             #+#    #+#             */
-/*   Updated: 2022/08/16 09:37:01 by llord            ###   ########.fr       */
+/*   Updated: 2022/08/16 13:32:50 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-struct s_stack	stacker_a(int *list)
+t_stack	stacker_a(int *list)
 {							// Initializes the A stack
-	struct s_stack	stack_a;
+	t_stack	stack_a;
 	int				i;
 
 	i = 0;
@@ -27,9 +27,9 @@ struct s_stack	stacker_a(int *list)
 	return (stack_a);
 }
 
-struct s_stack	stacker_b(int lenght)
+t_stack	stacker_b(int lenght)
 {							// Initializes the B stack
-	struct s_stack	stack_b;
+	t_stack	stack_b;
 	int				*empty_list;
 
 	empty_list = ft_calloc(lenght + 1, sizeof(int));

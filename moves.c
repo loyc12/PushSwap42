@@ -6,13 +6,13 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:11 by llord             #+#    #+#             */
-/*   Updated: 2022/08/16 09:44:42 by llord            ###   ########.fr       */
+/*   Updated: 2022/08/16 13:32:16 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ss(struct s_stack *stack_a, struct s_stack *stack_b, int type)
+void	ss(t_stack *stack_a, t_stack *stack_b, int type)
 {
 	if (type == 0)			// Type : (0) = sa
 	{
@@ -34,7 +34,7 @@ void	ss(struct s_stack *stack_a, struct s_stack *stack_b, int type)
 		write(1, "\n - Bad input (ss)", 18);	// For debugging only
 }
 
-void	pp(struct s_stack *stack_a, struct s_stack *stack_b, int type)
+void	pp(t_stack *stack_a, t_stack *stack_b, int type)
 {							// Swapped for convenience
 	if (type == 0)			// Type : (0) = pb
 	{
@@ -50,7 +50,7 @@ void	pp(struct s_stack *stack_a, struct s_stack *stack_b, int type)
 		write(1, "\n - Bad input (pp)", 18);	// For debugging only
 }
 
-void	rr(struct s_stack *stack_a, struct s_stack *stack_b, int type)
+void	rr(t_stack *stack_a, t_stack *stack_b, int type)
 {
 	if (type == 0)			// Type : (0) = ra
 	{
@@ -72,7 +72,7 @@ void	rr(struct s_stack *stack_a, struct s_stack *stack_b, int type)
 		write(1, "\n - Bad input (rr)", 18);	// For debugging only
 }
 
-void	rrr(struct s_stack *stack_a, struct s_stack *stack_b, int type)
+void	rrr(t_stack *stack_a, t_stack *stack_b, int type)
 {
 	if (type == 0)			// Type : (0) = rra
 	{
@@ -81,7 +81,7 @@ void	rrr(struct s_stack *stack_a, struct s_stack *stack_b, int type)
 	}
 	else if (type == 1)		// Type : (1) = rrb
 	{
-		write(1, "\nrb", 4);
+		write(1, "\nrrb", 4);
 		rotate(stack_b, 0);
 	}
 	else if (type == 2)		// Type : (2) = rrr

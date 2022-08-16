@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:20 by llord             #+#    #+#             */
-/*   Updated: 2022/08/11 15:33:23 by llord            ###   ########.fr       */
+/*   Updated: 2022/08/15 12:35:03 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ void	debug_print_int(int *list, int len, char *name)
 
 void	debug_moves(struct s_bank *bank_a, struct s_bank *bank_b)
 {							// Tests the moves (and the mover)
-	int	i;
-
 	printf("\n");			// Formating
 /*
 	ss(bank_a, bank_b, 0);

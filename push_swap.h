@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:20:01 by llord             #+#    #+#             */
-/*   Updated: 2022/08/11 15:19:06 by llord            ###   ########.fr       */
+/*   Updated: 2022/08/15 14:01:18 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 
 // From filter / lister / indexer
-int	format_filter(int argc, char **argv);
-int value_filter(int *list, int len);
-int	*lister(int argc, char **argv, int *list);
-int	*indexer(int *list, int len);
+int format_filter(char **args, int lenght);
+int value_filter(int *list, int lenght);
+int	*lister(int *list, char **args, int lenght);
+int	*indexer(int *list, int lenght);
 
 // From banker
 struct s_bank	banker_a(int *list);

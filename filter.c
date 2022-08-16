@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:13 by llord             #+#    #+#             */
-/*   Updated: 2022/08/11 15:33:50 by llord            ###   ########.fr       */
+/*   Updated: 2022/08/15 13:59:32 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,31 +20,35 @@ static int	is_valid(char *string)
 	i = -1;
 	validity = 1;
 	if (string[0] == '-' || string[0] == '+')
+	{
+		if (!('0' <= string[1] && string[1] <= '9'))
+			validity = 0;
 		++i;
+	}
 	while (string[++i])
 		if (!('0' <= string[i] && string[i] <= '9'))
 			validity = 0;
 	return (validity);
 }
 
-int format_filter(int argc, char **argv)
+int format_filter(char **args, int lenght)
 {
 	int	validity;
 	int	i; 
 
-	i = 0;
+	i = -1;
 	validity = 1;
-	while (++i < argc)
+	while (++i < lenght)
 	{
-		if (!is_valid(argv[i]))
+		if (!is_valid(args[i]))
 			validity = 0;
 	}
 	if (!validity)
-		write(1, "ERROR\n", 6);
+		write(1, "ERROR : Non-numerical values\n", 29);
 	return (validity);
 }
 
-int value_filter(int *list, int len)
+int value_filter(int *list, int lenght)
 {
 	int	validity;
 	int	i;
@@ -52,14 +56,14 @@ int value_filter(int *list, int len)
 
 	i = -1;
 	validity = 1;
-	while (++i < len)
+	while (++i < lenght)
 	{
 		j = -1;
-		while (++j < len)
+		while (++j < lenght)
 			if (list[i] == list[j] && i != j)
 				validity = 0;
 	}
 	if (!validity)
-		write(1, "ERROR\n", 6);
+		write(1, "ERROR : Repeated values\n", 24);
 	return (validity);
 }

@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:20:01 by llord             #+#    #+#             */
-/*   Updated: 2022/08/16 14:39:25 by llord            ###   ########.fr       */
+/*   Updated: 2022/08/18 15:53:43 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,13 @@ t_stack	*stack_pointer;
 
 // From debug_tests								REMOVE BEFORE CLOSING
 void	debug_print_stacks(t_stack *stack_a, t_stack *stack_b, int type);
+void	debug_print_end(t_stack *stack);
 void	debug_print_str(char **list, int len, char *name);
 void	debug_print_int(int*list, int len, char *name);
 void	debug_print_dist(int distance_down, int distance_up);
 void	debug_looks(t_stack *stack);
 void	debug_moves(t_stack *stack_a, t_stack *stack_b);
+void	prints_random(int n);
 
 // From sort_test
 int		find_range(int lenght);
@@ -66,6 +68,7 @@ void	rr(t_stack *stack_a, t_stack *stack_b, int type);
 void	rrr(t_stack *stack_a, t_stack *stack_b, int type);
 
 // From looker
+int	look_down(t_stack *stack, int range_min, int range_max);
 int		look_for(t_stack *stack, int range_min, int range_max);
 
 #endif

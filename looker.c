@@ -6,11 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:11 by llord             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/09/06 11:30:39 by llord            ###   ########.fr       */
-=======
-/*   Updated: 2022/08/23 11:28:46 by llord            ###   ########.fr       */
->>>>>>> 2ed0c0f71f27b8b24d64e39cfe7fae55510f886a
+/*   Updated: 2022/09/06 13:43:17 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +20,9 @@ static int	is_in_range(int value, int range_min, int range_max)
 		return (0);
 }
 
-<<<<<<< HEAD
 // Finds the closest value (to given range of values) bellow the position
 int	look_down(t_stack *stack, int range_min, int range_max)
 {
-=======
-int	look_down(t_stack *stack, int range_min, int range_max)
-{						// Finds the closest value bellow
->>>>>>> 2ed0c0f71f27b8b24d64e39cfe7fae55510f886a
 	int	i;
 	int	distance;
 
@@ -72,11 +63,7 @@ static int	look_up(t_stack *stack, int range_min, int range_max)
 // Finds the closest value )to given range of values) in the stack
 // and returns the relative location (steps)
 int	look_for(t_stack *stack, int range_min, int range_max)
-<<<<<<< HEAD
 {						
-=======
-{						// Finds the closest value in the stack from a given range of values
->>>>>>> 2ed0c0f71f27b8b24d64e39cfe7fae55510f886a
 	int	distance_down;
 	int	distance_up;
 

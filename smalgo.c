@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:20 by llord             #+#    #+#             */
-/*   Updated: 2022/09/06 12:35:31 by llord            ###   ########.fr       */
+/*   Updated: 2022/09/06 13:45:22 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Sorts the 3 first values of stack_a (used karnaugh map)
 void	sort_three_a(t_stack *stack_a, t_stack *stack_b)
 {
-	int	*lst;
+	int	*lst;	// !!!\ Copy list over so it doesn't change midway !!!
 
 	lst = (*stack_a).list;
 	if (((lst[2] < lst[1]) && !(lst[2] < lst[0])) || \
@@ -32,7 +32,7 @@ void	sort_three_a(t_stack *stack_a, t_stack *stack_b)
 // Sorts the 3 first values of stack_b (used karnaugh map)
 void	sort_three_b(t_stack *stack_a, t_stack *stack_b)
 {
-	int	*lst;
+	int	*lst;	// !!!\ Copy list over so it doesn't change midway !!!
 
 	lst = (*stack_a).list;
 	if (((lst[2] < lst[1]) && !(lst[2] < lst[0])) || \

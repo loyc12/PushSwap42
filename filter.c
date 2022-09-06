@@ -6,14 +6,15 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:13 by llord             #+#    #+#             */
-/*   Updated: 2022/08/16 12:30:35 by llord            ###   ########.fr       */
+/*   Updated: 2022/09/06 11:30:32 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Checks if a string is numerical
 static int	is_valid(char *string)
-{							// Checks if a string is numerical
+{
 	int	validity;
 	int	i;
 
@@ -31,8 +32,9 @@ static int	is_valid(char *string)
 	return (validity);
 }
 
+// Checks if the args are entirely numerical
 int	format_filter(char **args, int lenght)
-{							// Checks if the args are numerical
+{
 	int	validity;
 	int	i;
 
@@ -44,12 +46,13 @@ int	format_filter(char **args, int lenght)
 			validity = 0;
 	}
 	if (!validity)
-		write(1, "ERROR : Non-numerical values\n", 29);	// Despecify
+		write(1, "ERROR : Non-numerical values\n", 29);	// Despecify the warning(?)
 	return (validity);
 }
 
+// Checks if the values are all unique
 int	value_filter(int *list, int lenght)
-{							// Checks if the values are all unique
+{
 	int	validity;
 	int	i;
 	int	j;
@@ -64,6 +67,6 @@ int	value_filter(int *list, int lenght)
 				validity = 0;
 	}
 	if (!validity)
-		write(1, "ERROR : Repeated values\n", 24);	// Despecify
+		write(1, "ERROR : Repeated values\n", 24);	// Despecify the warning(?)
 	return (validity);
 }

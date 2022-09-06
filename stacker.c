@@ -6,14 +6,15 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:20 by llord             #+#    #+#             */
-/*   Updated: 2022/08/16 13:32:50 by llord            ###   ########.fr       */
+/*   Updated: 2022/09/06 11:28:22 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+
 t_stack	stacker_a(int *list)
-{							// Initializes the A stack
+{
 	t_stack	stack_a;
 	int				i;
 
@@ -27,8 +28,9 @@ t_stack	stacker_a(int *list)
 	return (stack_a);
 }
 
+// Initializes the stack_b (from stack_a)
 t_stack	stacker_b(int lenght)
-{							// Initializes the B stack
+{
 	t_stack	stack_b;
 	int				*empty_list;
 

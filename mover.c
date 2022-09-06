@@ -6,17 +6,19 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:11 by llord             #+#    #+#             */
-/*   Updated: 2022/08/16 13:32:37 by llord            ###   ########.fr       */
+/*   Updated: 2022/09/06 11:49:11 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Types : (0) = down : (1) = up
+// Makes or removes a space in the list (for push)
 static void	shuffle(t_stack *stack, int type)
-{							// Makes / remove a space in the list (for push)
+{
 	int	i;
 
-	if (type == 0)			// Type : (0) = down
+	if (type == 0)
 	{
 		i = (*stack).max_lenght;
 		while ((*stack).pos < i--)
@@ -24,7 +26,7 @@ static void	shuffle(t_stack *stack, int type)
 		(*stack).list[(*stack).pos] = 0;
 		(*stack).lenght++;
 	}
-	else if (type == 1)		// Type : (1) = up
+	else if (type == 1)
 	{
 		i = (*stack).pos;
 		while (++i < (*stack).max_lenght)
@@ -33,7 +35,7 @@ static void	shuffle(t_stack *stack, int type)
 		(*stack).lenght--;
 	}
 	else
-		write(1, " - Bad input (shuffle)", 20);	// For debugging only
+		write(1, " - Bad type (shuffle)", 19);	// For debugging only
 }
 
 void	push(t_stack *src_stack, t_stack *dst_stack)
@@ -72,18 +74,19 @@ void	swap(t_stack *stack)
 		write(1, " - Unable to swap", 17);		// For debugging only
 }
 
+// Types : (0) = down : (1) = up
 void	rotate(t_stack *stack, int type)
 {
 	if ((*stack).lenght < 2)
 		write(1, " - Unable to rotate", 21);
-	else if (type == 0)			// Type : (0) = down
+	else if (type == 0)
 	{
 		if (0 < (*stack).pos)
 			(*stack).pos--;
 		else				// Start-of-list case
 			(*stack).pos = (*stack).lenght - 1;
 	}
-	else if (type == 1)		// Type : (1) = up
+	else if (type == 1)
 	{
 		if ((*stack).pos < (*stack).lenght - 1)
 			(*stack).pos++;
@@ -91,5 +94,5 @@ void	rotate(t_stack *stack, int type)
 			(*stack).pos = 0;
 	}
 	else
-		write(1, " - Bad input (rotate)", 21);	// For debugging only
+		write(1, " - Bad type (rotate)", 20);	// For debugging only
 }

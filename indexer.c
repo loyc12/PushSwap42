@@ -6,14 +6,15 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:13 by llord             #+#    #+#             */
-/*   Updated: 2022/08/16 12:30:46 by llord            ###   ########.fr       */
+/*   Updated: 2022/09/06 11:28:51 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Finds the indexed number of a given value in the list
 static int	count_smaller(int *list, int value, int lenght)
-{							// Finds the indexed number of a given value
+{
 	int	i;
 	int	count;
 
@@ -25,8 +26,9 @@ static int	count_smaller(int *list, int value, int lenght)
 	return (count);
 }
 
+// Converts the ints into indexed values
 int	*indexer(int *list, int lenght)
-{							// Converts the ints into indexed values
+{
 	int	i;
 	int	*output;
 

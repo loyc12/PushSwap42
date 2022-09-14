@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:20 by llord             #+#    #+#             */
-/*   Updated: 2022/09/06 13:02:32 by llord            ###   ########.fr       */
+/*   Updated: 2022/09/14 15:11:26 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,11 @@ int	main(int argc, char **argv)				// Tests the general initialization
 	stack_a = stacker_a(list);				// Initializes both stacks (stacks)
 	stack_b = stacker_b(stack_a.max_lenght);
 
-	//debug_looks(&stack_a);				// Prints the distances (Debug)
+	//debug_looks(&stack_a);					// Prints the distances (Debug)
 
-	//debug_moves(&stack_a, &stack_b);		// Tries moves (Debug)
+	debug_moves(&stack_a, &stack_b);		// Tries moves (Debug)
 
-	sort_test(&stack_a, &stack_b);
-
-	//debug_print_end(&stack_a);			// Prints the end stack (Debug)
+	//debug_print_end(&stack_a);				// Prints the end stack (Debug)
 
 	return (0);
 }

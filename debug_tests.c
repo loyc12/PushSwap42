@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:20 by llord             #+#    #+#             */
-/*   Updated: 2022/09/06 13:02:26 by llord            ###   ########.fr       */
+/*   Updated: 2022/09/14 16:24:12 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	debug_print_stacks(t_stack *stack_a, t_stack *stack_b, int type)
 
 	if (type == 0 || type == 2)			// Type : (0)/(2) = a
 	{									// Prints the A stack
-		printf("\n -A-  : ");					
+		printf("\n -A-  : ");
 		i = -1;
 		while (++i < (*stack_a).max_lenght)
 		{
@@ -50,7 +50,6 @@ void	debug_print_end(t_stack *stack)
 	int	j;
 
 	i = (*stack).pos - 1;
-	write(1, "\n", 1);
 	while (++i < (*stack).lenght)
 	{
 		j = -1;
@@ -66,6 +65,7 @@ void	debug_print_end(t_stack *stack)
 		while (++j < (*stack).list[i])
 			write(1, "#", 1);
 	}
+	write(1, "\n\n\n", 3);
 }
 
 // Prints a list of strings
@@ -98,8 +98,9 @@ void	debug_print_dist(int distance_down, int distance_up)
 	printf(" Dist up   : %i\n", distance_up);
 }
 
+// Tests the looks (searches for 1 in a stack)
 void	debug_looks(t_stack *stack)
-{							// Tests the looks
+{
 	printf("\n\n");			// Formating
 	printf(" Distance  : %i\n", look_for(stack, 1, 1));
 }
@@ -107,15 +108,28 @@ void	debug_looks(t_stack *stack)
 // Tests the moves (and the mover)
 void	debug_moves(t_stack *stack_a, t_stack *stack_b)
 {
-	debug_print_stacks(stack_a, stack_b, 2);
+	//debug_print_stacks(stack_a, stack_b, 2);
 
-	sort_test(stack_a, stack_b);
+	//sort_test(stack_a, stack_b);
 
-	printf("\n");			// Formating
+	if (1 < (*stack_a).lenght)
+	{
+		if ((*stack_a).lenght < 3)
+		{
+			if ((*stack_a).list[0] == 2)
+				ss(stack_a, stack_b, 0);
+		}
+		else if ((*stack_a).lenght < 7)
+			small_sort(stack_a, stack_b);
+		else
+			big_sort(stack_a, stack_b);
+	}
+	
+	//printf("\n");			// Formating
 
-	debug_print_stacks(stack_a, stack_b, 2);
+	//debug_print_stacks(stack_a, stack_b, 2);
 
-	printf("\n");			// Formating
+	//printf("\n");			// Formating
 }
 
 /*

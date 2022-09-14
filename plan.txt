@@ -1,0 +1,39 @@
+
+
+	smalgo (lenght < 7)
+
+small_sort(stacks)
+- unmerge(stacks)*		- pushes until 3 are left
+- sort_three(stacks)**
+- merge(stacks)*		- fold b into a
+
+* only if lenght > 3
+** b only if lenght > 2
+
+
+
+	biglo
+big_sort(stacks)
+- find_range(lenght)
+- loop take_step(stacks + range)
+- end_sort(stacks)
+
+take_step(stacks + range)
+- find_step(stack + range : Type 0)
+
+find_step(stack + range/value + Type)
+- look_for x 2
+
+end_sort(stacks)
+- loop find_step(stack + value : Type 1)
+- check is_neighbor(stacks + value)
+- safety_swap(stacks)
+
+
+
+	to add ?
+stacks (struct)
+- stack_a
+- stack_b
+- lenght
+- middle

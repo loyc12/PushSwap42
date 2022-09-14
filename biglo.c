@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_test_1.c                                      :+:      :+:    :+:   */
+/*   biglo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:20 by llord             #+#    #+#             */
-/*   Updated: 2022/09/06 13:02:45 by llord            ###   ########.fr       */
+/*   Updated: 2022/09/14 16:31:58 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	find_range(int lenght)
 }
 
 // Finds the closest value in range and gives its relative location
-static int	find_step(t_stack *stack, int range, int type)
+int	find_step(t_stack *stack, int range, int type)
 {
 	int	middle;
 	int	step;
@@ -45,7 +45,7 @@ static int	find_step(t_stack *stack, int range, int type)
 		step = look_for(stack, middle - range + 1, middle + range - add);
 	}
 	else if (type == 1)
-		step = look_for(stack, range, range + 1);
+		step = look_for(stack, range, range); // + 1);
 	else
 	{
 		write(1, "\n - Bad type (find_step)", 24);
@@ -135,7 +135,7 @@ static void	final_sort(t_stack *stack_a, t_stack *stack_b)
 }
 
 // Presorts the values (by range) into stack_b
-void	sort_test(t_stack *stack_a, t_stack *stack_b)
+void	big_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int	range_step;
 	int	range;

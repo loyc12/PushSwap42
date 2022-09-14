@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:20:01 by llord             #+#    #+#             */
-/*   Updated: 2022/08/18 15:53:43 by llord            ###   ########.fr       */
+/*   Updated: 2022/09/14 16:33:37 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ typedef struct	s_stack
 	int	max_lenght;
 }		t_stack;
 
-t_stack	*stack_pointer;
-
-// From debug_tests								REMOVE BEFORE CLOSING
+// From debug_tests						REMOVE BEFORE CLOSING
 void	debug_print_stacks(t_stack *stack_a, t_stack *stack_b, int type);
 void	debug_print_end(t_stack *stack);
 void	debug_print_str(char **list, int len, char *name);
@@ -38,13 +36,10 @@ void	debug_looks(t_stack *stack);
 void	debug_moves(t_stack *stack_a, t_stack *stack_b);
 void	prints_random(int n);
 
-// From sort_test
-int		find_range(int lenght);
-void	sort_test(t_stack *stack_a, t_stack *stack_b);
-
 // From libft_imports
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
+int		*array_cpy(int *srclst, int n);
 
 // From filter / lister / indexer
 int		format_filter(char **args, int lenght);
@@ -68,7 +63,14 @@ void	rr(t_stack *stack_a, t_stack *stack_b, int type);
 void	rrr(t_stack *stack_a, t_stack *stack_b, int type);
 
 // From looker
-int	look_down(t_stack *stack, int range_min, int range_max);
 int		look_for(t_stack *stack, int range_min, int range_max);
+
+// From smalgo
+void	small_sort(t_stack *stack_a, t_stack *stack_b);
+
+// From biglo
+int		find_range(int lenght);
+int		find_step(t_stack *stack, int range, int type);
+void	big_sort(t_stack *stack_a, t_stack *stack_b);
 
 #endif

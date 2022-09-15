@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:11 by llord             #+#    #+#             */
-/*   Updated: 2022/09/06 11:48:41 by llord            ###   ########.fr       */
+/*   Updated: 2022/09/15 14:40:43 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,12 @@ void	ss(t_stack *stack_a, t_stack *stack_b, int type)
 		swap(stack_a);
 		swap(stack_b);
 	}
-	else
-		write(1, "\n - Bad type (ss)", 17);	// For debugging only
 }
 
 // Types : (0) = pb : (1) = pa (swapped for convenience)
 void	pp(t_stack *stack_a, t_stack *stack_b, int type)
 {
-	if (type == 0)			
+	if (type == 0)
 	{
 		write(1, "\npb", 3);
 		push(stack_a, stack_b);
@@ -48,8 +46,6 @@ void	pp(t_stack *stack_a, t_stack *stack_b, int type)
 		write(1, "\npa", 3);
 		push(stack_b, stack_a);
 	}
-	else
-		write(1, "\n - Bad type (pp)", 17);	// For debugging only
 }
 
 // Types : (0) = ra : (1) = rb : (3) = rr
@@ -71,8 +67,6 @@ void	rr(t_stack *stack_a, t_stack *stack_b, int type)
 		rotate(stack_a, 1);
 		rotate(stack_b, 1);
 	}
-	else
-		write(1, "\n - Bad type (rr)", 17);	// For debugging only
 }
 
 // Types : (0) = rra : (1) = rrb : (3) = rrr
@@ -94,6 +88,4 @@ void	rrr(t_stack *stack_a, t_stack *stack_b, int type)
 		rotate(stack_a, 0);
 		rotate(stack_b, 0);
 	}
-	else
-		write(1, "\n - Bad type (rrr)", 18);	// For debugging only
 }

@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:13 by llord             #+#    #+#             */
-/*   Updated: 2022/09/06 11:30:32 by llord            ###   ########.fr       */
+/*   Updated: 2022/09/15 14:28:54 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	is_valid(char *string)
 	if (string[0] == '-' || string[0] == '+')
 	{
 		if (!('0' <= string[1] && string[1] <= '9'))
-			validity = 0;	// Avoids "-" and "+" being numerical values
+			validity = 0;
 		++i;
 	}
 	while (string[++i])
@@ -46,7 +46,7 @@ int	format_filter(char **args, int lenght)
 			validity = 0;
 	}
 	if (!validity)
-		write(1, "ERROR : Non-numerical values\n", 29);	// Despecify the warning(?)
+		write(1, "ERROR\n", 6);
 	return (validity);
 }
 
@@ -67,6 +67,6 @@ int	value_filter(int *list, int lenght)
 				validity = 0;
 	}
 	if (!validity)
-		write(1, "ERROR : Repeated values\n", 24);	// Despecify the warning(?)
+		write(1, "ERROR\n", 6);
 	return (validity);
 }

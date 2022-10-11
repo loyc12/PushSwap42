@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:20 by llord             #+#    #+#             */
-/*   Updated: 2022/10/10 14:54:11 by llord            ###   ########.fr       */
+/*   Updated: 2022/10/11 16:59:13 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // Finds the optimal range from a given list range
 static int	find_range(int lenght)
-{
+{	
 	int	i;
 
 	i = -1;

@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:20:01 by llord             #+#    #+#             */
-/*   Updated: 2022/09/15 15:01:09 by llord            ###   ########.fr       */
+/*   Updated: 2022/10/11 16:26:28 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,19 @@ typedef struct s_stack
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 
+// From spliter
+char	**ft_split(char *s, char c, int *argc, int *flag);
+
 // From filter
 int		format_filter(char **args, int lenght);
 int		value_filter(int *list, int lenght);
+int		is_sorted(int *list, int lenght);
 
 // From processer
 int		*lister(int *list, char **args, int lenght);
 int		*indexer(int *list, int lenght);
-t_stack	stacker_a(int *list);
-t_stack	stacker_b(int lenght);
+t_stack	stacker_a(int *flag, int *list);
+t_stack	stacker_b(int *flag, int lenght);
 
 // From mover
 void	push(t_stack *src_stack, t_stack *dst_stack);

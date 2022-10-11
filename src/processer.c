@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:13 by llord             #+#    #+#             */
-/*   Updated: 2022/10/10 14:54:11 by llord            ###   ########.fr       */
+/*   Updated: 2022/10/11 16:33:49 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	*indexer(int *list, int lenght)
 }
 
 // Initializes stack_a
-t_stack	stacker_a(int *list)
+t_stack	stacker_a(int *flag, int *list)
 {
 	t_stack	stack_a;
 	int		i;
@@ -69,11 +69,12 @@ t_stack	stacker_a(int *list)
 	stack_a.pos = 0;
 	stack_a.lenght = i;
 	stack_a.max_lenght = i;
+	*flag *= 3;
 	return (stack_a);
 }
 
 // Initializes stack_b (from stack_a)
-t_stack	stacker_b(int lenght)
+t_stack	stacker_b(int *flag, int lenght)
 {
 	t_stack	stack_b;
 	int		*empty_list;
@@ -83,5 +84,6 @@ t_stack	stacker_b(int lenght)
 	stack_b.pos = 0;
 	stack_b.lenght = 0;
 	stack_b.max_lenght = lenght;
+	*flag *= 5;
 	return (stack_b);
 }

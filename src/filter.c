@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:13 by llord             #+#    #+#             */
-/*   Updated: 2022/10/10 14:54:11 by llord            ###   ########.fr       */
+/*   Updated: 2022/10/11 16:47:43 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	format_filter(char **args, int lenght)
 		if (!is_valid(args[i]))
 			validity = 0;
 	}
-	if (!validity)
+	if (!validity || lenght == 0)
 		write(1, "ERROR\n", 6);
 	return (validity);
 }
@@ -69,4 +69,19 @@ int	value_filter(int *list, int lenght)
 	if (!validity)
 		write(1, "ERROR\n", 6);
 	return (validity);
+}
+
+// Checks if the values are already sorted
+int	is_sorted(int *list, int lenght)
+{
+	int	i;
+	
+	i = 0;
+	while (++i < lenght)
+	{
+		if (list[i] < list[i - 1])
+			return (0);
+	}
+	free(list);
+	return (1);
 }

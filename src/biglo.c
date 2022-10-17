@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:20 by llord             #+#    #+#             */
-/*   Updated: 2022/10/11 16:59:13 by llord            ###   ########.fr       */
+/*   Updated: 2022/10/17 13:27:11 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static int	find_range(int lenght)
 		while (++i <= (lenght / 2))
 		{
 			if ((i) * (i) <= lenght && lenght <= (i) * (i + 1))
-				return (i + 1);
+				return (((3 * i) / 2) - 1);
 			if ((i) * (i + 1) < lenght && lenght < (i + 1) * (i + 1))
-				return (i + 2);
+				return (((3 * i) / 2));
 		}
 	}
 	return (1);

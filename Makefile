@@ -69,7 +69,7 @@ $(NAME): $(OBJS)
 	$(HIDE)$(CC) $(CFLAGS) -o $@ $^
 	@echo "$(GREEN)Files compiled$(DEF_COLOR)"
 
-$(OBJS): $(OBJDIR)%.o : $(SRCDIR)%.c $(OBJDIR)
+$(OBJS): $(OBJDIR)%.o : $(SRCDIR)%.c
 	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
 	$(HIDE)$(CC) $(CFLAGS) -c $< -o $@
 
@@ -93,4 +93,4 @@ re: fclean all
 # Runs the resulting file
 run: re
 	@echo "$(BLUE)Starting the program...$(DEF_COLOR)"
-	./$(NAME)
+	./$(NAME) 5 4 3 2 1

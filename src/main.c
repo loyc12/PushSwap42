@@ -6,18 +6,19 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:20 by llord             #+#    #+#             */
-/*   Updated: 2022/10/11 16:47:08 by llord            ###   ########.fr       */
+/*   Updated: 2022/10/18 15:04:13 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void free_all(int flag, char **argv, int *list_a, int *list_b)
+// Frees all used memory
+static void	free_all(int *flag, char **argv, int *list_a, int *list_b)
 {
 	int	i;
 
 	i = -1;
-	if (!(flag % 2))
+	if (*flag % 2 == 0)
 	{
 		while (argv[++i])
 		{
@@ -25,12 +26,13 @@ static void free_all(int flag, char **argv, int *list_a, int *list_b)
 		}
 		free(argv);
 	}
-	if (!(flag % 3))
+	if (*flag % 3 == 0)
 		free(list_a);
-	if (!(flag % 5))
+	if (*flag % 5 == 0)
 		free(list_b);
 }
 
+// Sorts a given stack configuration
 static void	sort_all(t_stack *stack_a, t_stack *stack_b)
 {
 	if (1 < (*stack_a).lenght)
@@ -47,11 +49,32 @@ static void	sort_all(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-int	main(int argc, char **argv)
+static void	main_loop(long *list, int argc, char **argv, int *flag)
 {
 	t_stack	stack_a;
 	t_stack	stack_b;
-	int		*list;
+
+	if (format_filter(argv, argc))
+	{
+		list = lister(list, argv, argc);
+		value_limiter(list, argc, flag);
+		list = indexer(list, argc);
+		if (value_filter(list, argc, flag))
+		{
+			if (!is_sorted(list, argc))
+			{
+				stack_a = stacker_a(flag, list);
+				stack_b = stacker_b(flag, stack_a.max_lenght);
+				sort_all(&stack_a, &stack_b);
+			}
+		}
+	}
+	free_all(flag, argv, stack_a.list, stack_b.list);
+}
+
+int	main(int argc, char **argv)
+{
+	long	*list;
 	int		flag;
 
 	flag = 1;
@@ -59,18 +82,6 @@ int	main(int argc, char **argv)
 	list = NULL;
 	if (--argc == 1)
 		argv = ft_split(argv[0], ' ', &argc, &flag);
-	if (format_filter(argv, argc))
-	{
-		list = lister(list, argv, argc);
-		list = indexer(list, argc);
-		if (value_filter(list, argc))
-			if (!is_sorted(list, argc))
-			{
-				stack_a = stacker_a(&flag, list);
-				stack_b = stacker_b(&flag, stack_a.max_lenght);
-				sort_all(&stack_a, &stack_b);
-			}
-	}
-	free_all(flag, argv, stack_a.list, stack_b.list);
+	main_loop(list, argc, argv, &flag);
 	return (0);
 }

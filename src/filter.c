@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:13 by llord             #+#    #+#             */
-/*   Updated: 2022/10/11 16:47:43 by llord            ###   ########.fr       */
+/*   Updated: 2022/10/18 14:43:43 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	format_filter(char **args, int lenght)
 }
 
 // Checks if the values are all unique
-int	value_filter(int *list, int lenght)
+int	value_filter(long *list, int lenght, int *flag)
 {
 	int	validity;
 	int	i;
@@ -66,22 +66,36 @@ int	value_filter(int *list, int lenght)
 			if (list[i] == list[j] && i != j)
 				validity = 0;
 	}
+	if (*flag % 7 == 0)
+		validity = 0;
 	if (!validity)
 		write(1, "ERROR\n", 6);
 	return (validity);
 }
 
-// Checks if the values are already sorted
-int	is_sorted(int *list, int lenght)
+// Checks if the values are inside the interger limits
+void	value_limiter(long *list, int lenght, int *flag)
 {
 	int	i;
-	
+
+	i = -1;
+	while (++i < lenght)
+	{
+		if (list[i] < -2147483648 || 2147483647 < list[i])
+			*flag *= 7;
+	}
+}
+
+// Checks if the values are already sorted
+int	is_sorted(long *list, int lenght)
+{
+	int	i;
+
 	i = 0;
 	while (++i < lenght)
 	{
 		if (list[i] < list[i - 1])
 			return (0);
 	}
-	free(list);
 	return (1);
 }

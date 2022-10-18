@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:20:01 by llord             #+#    #+#             */
-/*   Updated: 2022/10/17 12:40:18 by llord            ###   ########.fr       */
+/*   Updated: 2022/10/18 14:42:43 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_stack
 }		t_stack;
 
 // From libft_imports
-int		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 
 // From spliter
@@ -35,13 +35,16 @@ char	**ft_split(char *s, char c, int *argc, int *flag);
 
 // From filter
 int		format_filter(char **args, int lenght);
-int		value_filter(int *list, int lenght);
-int		is_sorted(int *list, int lenght);
+int		value_filter(long *list, int lenght, int *flag);
+void	value_limiter(long *list, int lenght, int *flag);
+int		is_sorted(long *list, int lenght);
 
 // From processer
-int		*lister(int *list, char **args, int lenght);
-int		*indexer(int *list, int lenght);
-t_stack	stacker_a(int *flag, int *list);
+long	*lister(long *list, char **args, int lenght);
+long	*indexer(long *list, int lenght);
+
+// From stacker
+t_stack	stacker_a(int *flag, long *list);
 t_stack	stacker_b(int *flag, int lenght);
 
 // From mover

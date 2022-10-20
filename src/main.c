@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:20 by llord             #+#    #+#             */
-/*   Updated: 2022/10/18 15:04:13 by llord            ###   ########.fr       */
+/*   Updated: 2022/10/20 12:04:38 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ static void	main_loop(long *list, int argc, char **argv, int *flag)
 				sort_all(&stack_a, &stack_b);
 			}
 		}
+		free(list); 
 	}
 	free_all(flag, argv, stack_a.list, stack_b.list);
 }

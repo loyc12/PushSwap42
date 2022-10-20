@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:13 by llord             #+#    #+#             */
-/*   Updated: 2022/10/18 14:49:19 by llord            ###   ########.fr       */
+/*   Updated: 2022/10/20 12:04:53 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ t_stack	stacker_a(int *flag, long *list)
 	stack_a.max_lenght = i++;
 	while (0 < i--)
 		stack_a.list[i] = (int)(list[i]);
-	free(list);
 	*flag *= 3;
 	return (stack_a);
 }

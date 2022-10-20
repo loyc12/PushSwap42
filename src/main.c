@@ -68,7 +68,7 @@ static void	main_loop(long *list, int argc, char **argv, int *flag)
 				sort_all(&stack_a, &stack_b);
 			}
 		}
-		free(list); 
+		free(list);
 	}
 	free_all(flag, argv, stack_a.list, stack_b.list);
 }

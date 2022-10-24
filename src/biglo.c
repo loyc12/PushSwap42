@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:20 by llord             #+#    #+#             */
-/*   Updated: 2022/10/17 13:27:11 by llord            ###   ########.fr       */
+/*   Updated: 2022/10/24 12:43:16 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	take_step(t_stack *stack_a, t_stack *stack_b, int range)
 	if (0 < range)
 	{
 		pp(stack_a, stack_b, 0);
-		if (((*stack_b).max_lenght / 2) + 1 < (*stack_b).list[(*stack_b).pos] \
+		if (((*stack_b).max_lenght / 2) + 1 > (*stack_b).list[(*stack_b).pos] \
 		&& (*stack_a).list[0] && (*stack_b).list[1])
 			rr(stack_a, stack_b, 1);
 	}

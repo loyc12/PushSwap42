@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:20 by llord             #+#    #+#             */
-/*   Updated: 2022/10/11 15:13:32 by llord            ###   ########.fr       */
+/*   Updated: 2022/10/24 12:31:39 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,6 @@ int	find_step(t_stack *stack, int range, int type)
 	else if (type == 1)
 		step = look_for(stack, range, range);
 	else
-	{
-		write(1, "\n - Bad type (find_step)", 24);
 		step = 0;
-	}
 	return (step);
 }

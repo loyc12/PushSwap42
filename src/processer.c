@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:13 by llord             #+#    #+#             */
-/*   Updated: 2022/10/24 08:52:06 by llord            ###   ########.fr       */
+/*   Updated: 2022/10/24 12:29:58 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ long	*lister(long *list, char **args, int lenght)
 {
 	int	i;
 
-	list = ft_calloc(lenght, sizeof(long));
+	list = ft_calloc(lenght + 3, sizeof(long));
 	i = -1;
 	while (args[++i])
 		list[i] = ft_atoi(args[i]);
@@ -44,7 +44,7 @@ long	*indexer(long *list, int lenght)
 	long	*output;
 	int		i;
 
-	output = ft_calloc(lenght, sizeof(int));
+	output = ft_calloc(lenght + 3, sizeof(int));
 	i = -1;
 	while (++i < lenght)
 		output[i] = count_smaller(list, list[i], lenght);

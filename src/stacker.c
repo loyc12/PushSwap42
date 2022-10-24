@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:13 by llord             #+#    #+#             */
-/*   Updated: 2022/10/20 12:04:53 by llord            ###   ########.fr       */
+/*   Updated: 2022/10/24 12:27:11 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_stack	stacker_b(int *flag, int lenght)
 {
 	t_stack	stack_b;
 
-	stack_b.list = ft_calloc(lenght + 1, sizeof(int));
+	stack_b.list = ft_calloc(lenght, sizeof(int));
 	stack_b.pos = 0;
 	stack_b.lenght = 0;
 	stack_b.max_lenght = lenght;

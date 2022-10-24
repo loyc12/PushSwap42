@@ -6,7 +6,7 @@
 /*   By: llord <llord@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 11:13:13 by llord             #+#    #+#             */
-/*   Updated: 2022/10/18 14:43:43 by llord            ###   ########.fr       */
+/*   Updated: 2022/10/24 12:27:59 by llord            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	format_filter(char **args, int lenght)
 			validity = 0;
 	}
 	if (!validity || lenght == 0)
-		write(1, "ERROR\n", 6);
+		write(2, "ERROR\n", 6);
 	return (validity);
 }
 
@@ -69,7 +69,7 @@ int	value_filter(long *list, int lenght, int *flag)
 	if (*flag % 7 == 0)
 		validity = 0;
 	if (!validity)
-		write(1, "ERROR\n", 6);
+		write(2, "ERROR\n", 6);
 	return (validity);
 }
 
